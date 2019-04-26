@@ -148,6 +148,7 @@ var (
 		utils.RPCListenAddrFlag,
 		utils.RPCPortFlag,
 		utils.RPCApiFlag,
+		utils.TLSEnabledFlag,
 		utils.WSEnabledFlag,
 		utils.WSListenAddrFlag,
 		utils.WSPortFlag,
@@ -218,6 +219,9 @@ func init() {
 
 	app.Before = func(ctx *cli.Context) error {
 		logdir := ""
+		if ctx.GlobalBool(utils.TLSEnabledFlag.Name) {
+			fmt.Println("TLS is enalbed")
+		}
 		if ctx.GlobalBool(utils.DashboardEnabledFlag.Name) {
 			logdir = (&node.Config{DataDir: utils.MakeDataDir(ctx)}).ResolvePath("logs")
 		}

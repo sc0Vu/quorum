@@ -441,6 +441,10 @@ var (
 		Usage: "API's offered over the HTTP-RPC interface",
 		Value: "",
 	}
+	TLSEnabledFlag = cli.BoolFlag{
+		Name:  "tls",
+		Usage: "Enable the HTTPS-RPC support",
+	}
 	IPCDisabledFlag = cli.BoolFlag{
 		Name:  "ipcdisable",
 		Usage: "Disable the IPC-RPC server",
