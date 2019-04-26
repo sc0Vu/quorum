@@ -90,6 +90,11 @@ func (s *PublicEthereumAPI) StorageRoot(addr common.Address, blockNr *rpc.BlockN
 	return pub.GetStorageRoot(addr)
 }
 
+// Ping returns pong
+func (api *PublicEthereumAPI) Ping() string {
+	return "pong"
+}
+
 // Hashrate returns the POW hashrate
 func (api *PublicEthereumAPI) Hashrate() hexutil.Uint64 {
 	return hexutil.Uint64(api.e.Miner().HashRate())
